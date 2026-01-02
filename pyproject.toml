@@ -1,15 +1,16 @@
 [tool.poetry]
-name = "my-bc-st002"
+name = "my-bc-st004"
 version = "0.1.0"
 description = ""
 authors = ["Emmatshi <etshi8712@gmail.com>"]
 readme = "README.md"
+packages = [{ include = "my_bc_st004", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
 streamlit = "^1.52.2"
 
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
