@@ -1,6 +1,10 @@
 import streamlit as st
 from my_bc_st004.generator import summarize_text
 
+def word_count(text: str) -> int:
+    return len(text.split())
+
+
 st.set_page_config(page_title="Text Summarizer", layout="wide")
 st.title("📝 Text Summarizer")
 
@@ -19,19 +23,21 @@ input_text = st.text_area(
     height=250,
     key="input_text",
 )
+if input_text:
+    st.caption(f"🧮 Original word count: {word_count(input_text)}")
 
 col1, col2 = st.columns(2)
 
 with col1:
-    if st.button("Summarize ✨"):
-        if not input_text.strip():
-            st.warning("Please paste some text to summarize.")
-        else:
-            with st.spinner("Summarizing..."):
-                st.session_state.summary = summarize_text(
-                    text=input_text,
-                    length=length.lower(),
-                )
+    if st.button(
+        "Summarize ✨",
+        disabled=not input_text.strip(),
+    ):
+        with st.spinner("Summarizing..."):
+            st.session_state.summary = summarize_text(
+                text=input_text,
+                length=length.lower(),
+            )
 
 with col2:
     if st.button("Reset 🔄"):
@@ -40,5 +46,14 @@ with col2:
 
 if st.session_state.summary:
     st.markdown("### Summary")
+
+    st.caption(
+        f"🧮 Summary word count: {word_count(st.session_state.summary)}"
+    )
+
     st.markdown(st.session_state.summary)
+
+st.code(st.session_state.summary, language="markdown")
+
+
 
