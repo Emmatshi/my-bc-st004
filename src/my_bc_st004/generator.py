@@ -1,0 +1,11 @@
+from my_bc_st004.llm import get_llm
+from my_bc_st004.prompts import SUMMARY_PROMPT
+
+def summarize_text(text: str, length: str) -> str:
+    llm = get_llm()
+    query = SUMMARY_PROMPT.format(
+        text=text,
+        length=length,
+    )
+    response = llm.invoke(query)
+    return response.content
