@@ -1,12 +1,22 @@
 import streamlit as st
 from my_bc_st004.generator import summarize_text
 
-def word_count(text: str) -> int:
-    return len(text.split())
-
-
+# 1️⃣ Page config (must be first Streamlit call)
 st.set_page_config(page_title="Text Summarizer", layout="wide")
+
+# 2️⃣ Safety guard (RIGHT HERE)
+if "OPENAI_API_KEY" not in st.secrets:
+    st.error(
+        "OpenAI API key not found.\n\n"
+        "- For local development: add it to `.streamlit/secrets.toml`\n"
+        "- For Streamlit Cloud: add it in App Settings → Secrets"
+    )
+    st.stop()
+
+
+# 3️⃣ App title and UI
 st.title("📝 Text Summarizer")
+
 
 st.sidebar.header("Summary Settings")
 
