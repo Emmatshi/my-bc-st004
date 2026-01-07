@@ -1,5 +1,7 @@
 # my-bc-st004 — Text Summarizer
 
+[![CI](https://github.com/Emmatshi/my-bc-st004/actions/workflows/ci.yml/badge.svg)](https://github.com/Emmatshi/my-bc-st004/actions/workflows/ci.yml)
+
 [![Open in Streamlit](https://2rpz6ewxyfuzzlernsbzjj.streamlit.app/)](https://my-bc-st004.streamlit.app)
 
 # 📝 Text Summarizer
