@@ -7,5 +7,13 @@ def summarize_text(text: str, length: str) -> str:
         text=text,
         length=length,
     )
-    response = llm.invoke(query)
-    return response.content
+
+    try:
+        response = llm.invoke(query)
+        return response.content.strip()
+    except Exception as exc:
+        return(
+            "⚠️ Unable to generate summary at this time.\n\n"
+            f"Details: {exc}"
+        )
+        
