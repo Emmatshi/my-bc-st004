@@ -2,17 +2,21 @@
 
 [![Open in Streamlit](https://2rpz6ewxyfuzzlernsbzjj.streamlit.app/)](https://my-bc-st004.streamlit.app)
 
-## 📝 Text Summarizer
+# 📝 Text Summarizer
 
-A Streamlit app that summarizes long text using OpenAI and LangChain.
+A Streamlit application that summarizes long-form text into concise,
+readable summaries using a large language model.
 
-### Features
+This app was refactored to align with a reusable Streamlit AI template,
+ensuring clean architecture, CI validation, and consistent deployment.
 
--   Paste any text to summarize
--   Choose summary length (Short / Medium / Detailed)
--   Displays original and summary word counts
--   Copy summary to clipboard
--   Clean, responsive UI
+## ✨ Features
+
+-   Summarizes long text into concise outputs
+-   Adjustable summary length
+-   Clean separation of UI and LLM logic
+-   Secure OpenAI API key handling
+-   CI-validated project structure
 
 ## 🚀 Live App
 
@@ -35,12 +39,25 @@ The app follows a clean `src/` layout:
 -   `prompts.py` — prompt templates
 -   `llm.py` — OpenAI client configuration
 
-## 🏃‍♂️ Run Locally
+## 🏃 Run Locally
+
+### Prerequisites
+
+-   Python 3.11
+-   Poetry
+
+### Setup
 
 ```bash
 git clone https://github.com/Emmatshi/my-bc-st004.git
 cd my-bc-st004
-pyenv local 3.11.4
 poetry install
-poetry run python -m streamlit run main.py
+
+## 🧩 Built From a Reusable Template
+
+This application was refactored to align with a reusable Streamlit AI
+template that standardizes project structure, secrets management, and CI.
+
+🔗 Template repository:
+https://github.com/Emmatshi/streamlit-ai-template
 ```
